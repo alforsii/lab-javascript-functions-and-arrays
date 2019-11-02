@@ -2,7 +2,11 @@
   function maxOfTwoNumbers(a,b){
     if(a>b) return a;
     else return b;
+    //or==>
+    // return Math.max(a,b);
   }
+
+
   maxOfTwoNumbers(47,73)
   // console.log(maxOfTwoNumbers(47,73));
 
@@ -121,20 +125,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(array){
+function uniquifyArray(arr){
   let uniquified = [];
-  for(let i=0;i<array.length;i++){
-    let checkItem = array[i];
-    let searchItem = array.indexOf(checkItem,i+1);
-    if(checkItem === array[searchItem]){
-      array.splice(searchItem,1);
-    } else  uniquified.push(checkItem);
-
+  for(let i=0;i<arr.length;i++){
+    if(uniquified.indexOf(arr[i]) === -1){
+      uniquified.push(arr[i]);
+    } 
   }
   // console.log(`Uniq items array is: ${uniquified}`);    //it should return uniq items array.
   return uniquified;
 }
 uniquifyArray(wordsUnique);
+
+// // another way.
+// function uniquifyArray(array){
+//   let uniquified = [];
+//   for(let i=0;i<array.length;i++){
+//     let checkItem = array[i];
+//     let searchItem = array.indexOf(checkItem,i+1);
+//     if(checkItem === array[searchItem]){
+//       array.splice(searchItem,1);
+//     } else  uniquified.push(checkItem);
+
+//   }
+//   // console.log(`Uniq items array is: ${uniquified}`);    //it should return uniq items array.
+//   return uniquified;
+// }
+// uniquifyArray(wordsUnique);
 // console.log(wordsUnique);// just for myself to check if global wordsUniq arrays was mutated or not, and it's not! Good:)
 
 
@@ -265,3 +282,4 @@ function greatestProduct(arr, numberOfEl) {
   return max;
 }
 greatestProduct(matrix, 4); //here numberOfEl = 4;
+console.log(greatestProduct(matrix, 4));
